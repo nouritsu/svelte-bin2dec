@@ -3,13 +3,10 @@
 	let valid = true;
 	let result;
 
-	$: valid = input
-		.split("")
-		.reduce((r, cur) => r && /1|0|\s|_/.test(cur), true);
+	$: valid = /^([01 _]+)$/.test(input);
 
 	$: result = input
-		.replace(" ", "")
-		.replace("_", "")
+		.replace(/(\s|_)+/, "")
 		.split("")
 		.map((c, _) => Number(c))
 		.reverse()
