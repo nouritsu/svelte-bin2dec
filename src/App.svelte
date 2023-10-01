@@ -14,18 +14,15 @@
 		.reduce((sum, cur) => sum + cur, 0);
 </script>
 
-<div>
-	<h1>Binary to Decimal Converter</h1>
-	<input
-		placeholder="Input a Binary Number"
-		bind:value={input}
-	/>
-	{#if valid}
-		<p>Result: {result}</p>
-	{:else}
-		<p>Invalid Input</p>
-	{/if}
-</div>
+<h1>Binary to Decimal Converter</h1>
+<input bind:value={input} />
+{#if input == ""}
+	<p>Enter a binary number</p>
+{:else if valid}
+	<p>Result: {result}</p>
+{:else}
+	<p>Invalid Input</p>
+{/if}
 
 <style>
 </style>
