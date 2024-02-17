@@ -1,7 +1,7 @@
-<script>
-	let input = "";
+<script lang="ts">
+	let input: string = "";
 	let valid = true;
-	let result;
+	let result: number;
 
 	$: valid = /^([01 _]+)$/.test(input);
 
@@ -16,7 +16,7 @@
 
 <h1>Binary to Decimal Converter</h1>
 <input bind:value={input} />
-{#if input == ""}
+{#if !input}
 	<p>Enter a binary number</p>
 {:else if valid}
 	<p>Result: {result}</p>
@@ -25,4 +25,20 @@
 {/if}
 
 <style>
+	h1 {
+		text-align: center;
+		font-size: 2rem;
+		transform: translate();
+	}
+
+	input {
+		text-align: center;
+		width: 100%;
+		font-size: 1.5rem;
+	}
+
+	p {
+		text-align: center;
+		font-size: 1.5rem;
+	}
 </style>
